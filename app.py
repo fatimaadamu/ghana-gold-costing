@@ -12,24 +12,29 @@ top = st.number_input("Top:", value=None, step=0.01)
 down = st.number_input("Down:", value=None, step=0.01)
 price = st.number_input("Price:", value=None, step=0.01)
 
-# Automatic Calculations
+# Automatically calculated values
 if top and down:
-    pounds = top - down
+    pounds = (top - down) / 7.75
     density = pounds / 20.81
     karat = density / 0.82
-    amount = (pounds * price)
 
-    # Display Results
-    st.subheader("Calculated Gold Value")
-    st.write("---")
-    st.write(f"**Top:** {top}")
-    st.write(f"**Down:** {down}")
-    st.write(f"**Price:** {price}")
     st.write(f"**Pounds:** {pounds:.2f}")
     st.write(f"**Density:** {density:.2f}")
     st.write(f"**Karat:** {karat:.2f}")
 
-    st.write("---")
-    st.write(f"### Total Amount (GHC): {amount:,.2f}")
-else:
-    st.warning("Please enter the values for Top, Down, and Price to calculate the gold value.")
+    # Final Calculation
+    if price:
+        amount = pounds * price
+
+        # Display Results
+        st.subheader("Calculated Gold Value")
+        st.write("---")
+        st.write(f"**Top:** {top}")
+        st.write(f"**Down:** {down}")
+        st.write(f"**Price:** {price}")
+        st.write(f"**Pounds:** {pounds:.2f}")
+        st.write(f"**Density:** {density:.2f}")
+        st.write(f"**Karat:** {karat:.2f}")
+
+        st.write("---")
+        st.write(f"###
