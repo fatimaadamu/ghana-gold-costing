@@ -23,8 +23,8 @@ if top:
     st.write(f"**Karat:** {karat:.2f}")
 
     # Final Calculation
-    if down and price:
-        amount = (top - down) * price
+    if price:
+        amount = pounds * price
 
         # Display Results
         st.subheader("Calculated Gold Value")
@@ -39,6 +39,6 @@ if top:
         st.write("---")
         st.write(f"### Total Amount (GHC): {amount:,.2f}")
     else:
-        st.warning("Please enter both Down and Price values to calculate the gold value.")
+        st.warning("Please enter the Price value to calculate the gold value.")
 else:
     st.warning("Please enter the Top value to calculate Pounds, Density, and Karat.")
