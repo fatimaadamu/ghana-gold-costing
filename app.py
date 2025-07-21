@@ -22,9 +22,10 @@ if top:
     st.write(f"**Density:** {density:.2f}")
     st.write(f"**Karat:** {karat:.2f}")
 
-    # Final Calculation
+    # Final Calculation based on provided Excel formula
     if price:
-        amount = pounds * price
+        amount = (karat / 23) * price * pounds
+        amount = int(amount)  # truncates the value as per Excel's TRUNC function
 
         # Display Results
         st.subheader("Calculated Gold Value")
