@@ -37,4 +37,8 @@ if top and down:
         st.write(f"**Karat:** {karat:.2f}")
 
         st.write("---")
-        st.write(f"###
+        st.write(f"### Total Amount (GHC): {amount:,.2f}")
+    else:
+        st.warning("Please enter the Price to calculate the gold value.")
+else:
+    st.warning("Please enter both Top and Down values to calculate Pounds, Density, and Karat.")
