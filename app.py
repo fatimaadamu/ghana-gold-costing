@@ -13,8 +13,8 @@ down = st.number_input("Down:", value=None, step=0.01)
 price = st.number_input("Price:", value=None, step=0.01)
 
 # Automatically calculated values
-if top and down:
-    pounds = (top - down) / 7.75
+if top:
+    pounds = top / 7.75
     density = pounds / 20.81
     karat = density / 0.82
 
@@ -23,8 +23,8 @@ if top and down:
     st.write(f"**Karat:** {karat:.2f}")
 
     # Final Calculation
-    if price:
-        amount = pounds * price
+    if down and price:
+        amount = (top - down) * price
 
         # Display Results
         st.subheader("Calculated Gold Value")
@@ -39,6 +39,6 @@ if top and down:
         st.write("---")
         st.write(f"### Total Amount (GHC): {amount:,.2f}")
     else:
-        st.warning("Please enter the Price to calculate the gold value.")
+        st.warning("Please enter both Down and Price values to calculate the gold value.")
 else:
-    st.warning("Please enter both Top and Down values to calculate Pounds, Density, and Karat.")
+    st.warning("Please enter the Top value to calculate Pounds, Density, and Karat.")
