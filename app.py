@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import datetime
 import math
 
-st.title("Ghana Gold Value Determination")
+st.title("Heritage Trail - Gold Costing")
 
 # Excel TRUNC function exact equivalent
 def excel_trunc(value, decimals=2):
