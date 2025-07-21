@@ -11,13 +11,13 @@ st.write(f"**Date & Time:** {now.strftime('%Y-%m-%d %H:%M:%S')}")
 top = st.number_input("Top:", value=None, step=0.01)
 down = st.number_input("Down:", value=None, step=0.01)
 price = st.number_input("Price:", value=None, step=0.01)
-pounds = st.number_input("Pounds:", value=None, step=0.01)
-density = st.number_input("Density:", value=None, step=0.01)
-karat = st.number_input("Karat:", value=None, step=0.01)
 
-# Calculation (based on provided formula)
-if all([top, down, price, pounds, density, karat]):
-    amount = ((top - down) * price * pounds * density * karat) / 24
+# Automatic Calculations
+if top and down:
+    pounds = top - down
+    density = pounds / 20.81
+    karat = density / 0.82
+    amount = (pounds * price)
 
     # Display Results
     st.subheader("Calculated Gold Value")
@@ -25,11 +25,11 @@ if all([top, down, price, pounds, density, karat]):
     st.write(f"**Top:** {top}")
     st.write(f"**Down:** {down}")
     st.write(f"**Price:** {price}")
-    st.write(f"**Pounds:** {pounds}")
-    st.write(f"**Density:** {density}")
-    st.write(f"**Karat:** {karat}")
+    st.write(f"**Pounds:** {pounds:.2f}")
+    st.write(f"**Density:** {density:.2f}")
+    st.write(f"**Karat:** {karat:.2f}")
 
     st.write("---")
     st.write(f"### Total Amount (GHC): {amount:,.2f}")
 else:
-    st.warning("Please enter all required values to calculate the gold value.")
+    st.warning("Please enter the values for Top, Down, and Price to calculate the gold value.")
