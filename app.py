@@ -32,9 +32,14 @@ if top and down:
     else:
         karat = 0
 
-    # Check Karat range with concise warning message
+    # Check Karat range with large, clear warning
     if karat < 20 or karat > 24:
-        st.error("⚠️ **KARAT IS OUT OF RANGE. PLEASE REVIEW YOUR INPUTS**")
+        st.markdown(
+            '<div style="text-align:center; font-size:40px; color:red; font-weight:bold;">'
+            '⚠️ KARAT IS OUT OF RANGE.<br>PLEASE REVIEW YOUR INPUTS'
+            '</div>',
+            unsafe_allow_html=True
+        )
 
     # Display intermediate calculations
     st.write(f"**Pounds:** {pounds:.2f}")
