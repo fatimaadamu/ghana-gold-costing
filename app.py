@@ -32,6 +32,10 @@ if top and down:
     else:
         karat = 0
 
+    # Check if Karat is within the valid range (20 - 24)
+    if karat < 20 or karat > 24:
+        st.warning("**Karat value is outside the valid range (20 - 24). Please review your inputs.**")
+
     # Display intermediate calculations
     st.write(f"**Pounds:** {pounds:.2f}")
     st.write(f"**Density:** {density:.2f}")
